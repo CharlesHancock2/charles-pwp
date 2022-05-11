@@ -11,7 +11,7 @@
   <title>PWP</title>
 </head>
 <body>
-<div class="container bg-secondary bg-opacity-25 text-center shadow-sm">
+<div class="container bg-opacity-25 text-center shadow-sm" id="welcome">
   <div class="row">
     <div class="col">
       <h1>Personal Website Project</h1>
@@ -27,12 +27,12 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container w-50">
 <div class="card-group mt-5">
   <div class="card text-center shadow">
     <img src="./img/placeholder-image.jpeg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Card Title</h5>
+      <h5 class="card-title">Abq Wildlife Federation</h5>
       <p>Description of project</p>
       <button type="button" class="btn btn-primary">Link</button>
     </div>
@@ -54,8 +54,10 @@
     </div>
   </div>
 </div>
-<div class="container mt-5 d-block bg-success bg-gradient bg-opacity-50 border border-dark rounded shadow">
-  <form action="action_page.pwp">
+</div>
+<div class="container mt-5 d-block bg-gradient bg-opacity-50 border border-dark rounded shadow" id="form-wrapper">
+  <div class="container mx-auto">
+  <form action="action_page.pwp" class="w-25 mx-auto">
     <label for ="name">Full Name</label>
     <input type="text" id="name" name="name" class="d-block" placeholder="Your name...">
     <label for="email">Email</label>
@@ -64,8 +66,9 @@
     <input type="text" id="message" name="message" class="d-block" placeholder="Your message...">
     <button type="submit" class="btn btn-primary m-5">Submit</button>
   </form>
+  </div>
 </div>
-</div>
+
 
 
 
