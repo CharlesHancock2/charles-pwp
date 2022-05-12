@@ -1,7 +1,10 @@
 #welcome, #form-wrapper {
-    background-color: #387fe3;
+    background-color: #388ee3;
 }
 
+textarea {
+    width: 12rem;
+}
 
 
 
