@@ -72,13 +72,14 @@
 <div class="container mt-5 mb-5 d-block bg-gradient bg-opacity-25 border border-dark rounded shadow-lg" id="form-wrapper">
     <div class="row">
       <div class="col-md-4 d-block mx-auto mt-4">
-    <form action="./apis" method="post" id="contact" class="w-75 mx-auto p-2" novalidate>
+    <form action="../src/" method="post" id="contact" class="w-75 mx-auto p-2" novalidate>
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" class="d-block border-secondary" placeholder="Your name...">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" class="d-block border-secondary" placeholder="Your email address...">
       <label for="message">Message</label>
       <textarea class="d-block border-secondary" id="message" maxlength="2000" name="message" placeholder="Your message...(2000 characters max)" style="height:200px"></textarea>
+      <div class="g-recaptcha" data-sitekey="6LdhmfQfAAAAAHDnjdAjqNbWNBCqD3NDXIeuIZv9"></div>
       <button type="submit" class="btn btn-primary border border-dark m-5">Submit</button>
     </form>
         <div id="output-area"></div>
@@ -102,8 +103,10 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <!-- Place this tag in your head or just before your close body tag (GitHub link button). -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 <!--JQuery, Form, Validate, Additional Methods-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -112,6 +115,9 @@
 
 <!-- custom jquery script -->
 <script src="./js/script.js"></script>
+
+<!--reCAPTCHA-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body>
 </html>
