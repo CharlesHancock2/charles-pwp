@@ -32,10 +32,52 @@ const handleGetRequest = (request: Request, response: Response) => {
     return response.json('This thing is on!')
 }
 
+const handlePostRequest = (request: Request, response: Response) => {
+
+    response.append('Content-Type', 'text/html')
+    response.append('Access-Control-Allow-Origin', '*')
+    // @ts-ignore
+    if (request.recaptcha.error) {
+        return response.send(
+            `<div class='alert alert-danger' role='alert'><strong>Oh Snap!</strong> There was a Recaptcha error. Please try again.</div>`
+        )
+    }
+
+    const errors = validationResult(request)
+
+    if (errors.isEmpty() === false) {
+        const currentError = errors.array()[0]
+        return response.send(
+            `<div class='alert alert-danger' role='alert'><strong>Oh Snaps!</strong> ${currentError.msg}</div>`
+        )
+    }
+
+    const {name, email, message} = request.body
+
+    const mailgunData = {
+        to: process.env.MAIL_RECIPIENT,
+        from: `${name} <postmaster@${process.env.MAILGUN_DOMAIN}>`,
+        subject: `${email}`,
+        text: message
+    }
+
+    mailgunClient.messages.create(process.env.MAILGUN_DOMAIN, mailgunData)
+        .then((msg: any) =>
+        response.send(
+            `<div class='alert alert-success' role='alert'>Email Successfully Sent</div>`
+        ))
+        .catch((error: any) =>
+        response.send(
+        `<div class='alert alert-danger' role='alert'><strong>Oh Snap3!</strong> Email Failed. Please try again.</div>`
+        ))
+
+}
+
 const indexRoute = express.Router()
 
 indexRoute.route('/')
     .get(handleGetRequest)
+    .post(recaptcha.middleware.verify, validation, handlePostRequest)
 
 app.use('/apis', indexRoute)
 
